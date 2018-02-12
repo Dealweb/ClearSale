@@ -116,7 +116,7 @@ class Passenger implements XmlEntityInterface
 
     public function toXML(XMLWriter $xml)
     {
-        $xml->startElement('Passenger');
+        $xml->startElement('Passanger');
 
         if ($this->name) {
             $xml->writeElement('Name', $this->name);

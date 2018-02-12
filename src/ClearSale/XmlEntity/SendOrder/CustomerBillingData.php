@@ -37,14 +37,12 @@ class CustomerBillingData extends AbstractCustomer
 
     public function toXML(XMLWriter $xml)
     {
-        $xml->startElement("BillingData");
+        $xml->startElement("CollectionData");
 
         parent::toXML($xml);
 
         if ($this->birthDate) {
             $xml->writeElement("BirthDate", $this->birthDate->format(Order::DATE_TIME_FORMAT));
-        } else {
-            throw new RequiredFieldException('Field BirthDate of the CustomerBillingData object is required');
         }
 
         $xml->endElement();
