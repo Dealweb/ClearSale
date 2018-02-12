@@ -849,7 +849,7 @@ class Order
         }
 
         if ($this->totalItems) {
-            $xml->writeElement("TotalItems", $this->totalItems);
+            $xml->writeElement("TotalItens", $this->totalItems);
         } else {
             throw new RequiredFieldException('Field TotalItems of the Order object is required');
         }
@@ -965,7 +965,7 @@ class Order
         }
 
         if (count($this->passengers) > 0) {
-            $xml->startElement("Passengers");
+            $xml->startElement("Passangers");
 
             foreach ($this->passengers as $passenger) {
                 $passenger->toXML($xml);
