@@ -964,34 +964,38 @@ class Order
             $xml->endElement();
         }
 
-        if (count($this->passengers) > 0) {
-            $xml->startElement("Passangers");
+        if ($this->passengers){
+            if (count($this->passengers) > 0) {
+                $xml->startElement("Passangers");
 
-            foreach ($this->passengers as $passenger) {
-                $passenger->toXML($xml);
+                foreach ($this->passengers as $passenger) {
+                    $passenger->toXML($xml);
+                }
+
+                $xml->endElement();
             }
-
-            $xml->endElement();
         }
 
-        if (count($this->connections) > 0) {
-            $xml->startElement("Connections");
-
-            foreach ($this->connections as $connection) {
-                $connection->toXML($xml);
+        if ($this->connections) {
+            if (count($this->connections) > 0) {
+                $xml->startElement("Connections");
+                foreach ($this->connections as $connection) {
+                    $connection->toXML($xml);
+                }
+                $xml->endElement();
             }
-
-            $xml->endElement();
         }
 
-        if (count($this->hotelReservations) > 0) {
-            $xml->startElement("HotelReservations");
+        if ($this->hotelReservations){
+            if (count($this->hotelReservations) > 0) {
+                $xml->startElement("HotelReservations");
 
-            foreach ($this->hotelReservations as $hotelReservation) {
-                $hotelReservation->toXML($xml);
+                foreach ($this->hotelReservations as $hotelReservation) {
+                    $hotelReservation->toXML($xml);
+                }
+
+                $xml->endElement();
             }
-
-            $xml->endElement();
         }
 
         $xml->endElement(); // Order
